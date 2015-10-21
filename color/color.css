@@ -1,0 +1,49 @@
+body {
+   margin: 0;
+   padding: 10px;
+
+   background-color: #ececec;
+}
+
+.colors {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+
+   max-width: 960px;
+   margin: 0 auto;
+
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+}
+
+.swatch {
+   box-sizing: border-box;
+   width: 180px;
+   flex: 0 0 auto;
+
+   margin: 10px;
+   border-radius: 5px;
+
+   background-color: #f9f9f9;
+   border: 1px solid #f0f0f0;
+}
+
+.swatch .sample {
+   height: 60px;
+}
+
+.swatch .name {
+   padding: 5px;5
+}
+
+.swatch .codes {
+   list-style: none;
+   margin: 0;
+   padding: 5px;
+}
+
+.swatch .codes .code {
+   padding: 10px;
+}

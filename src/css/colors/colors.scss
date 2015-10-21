@@ -1,0 +1,69 @@
+.colors {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+
+   max-width: 960px;
+   margin: 0 auto;
+
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+}
+
+.swatch {
+   box-sizing: border-box;
+   width: 180px;
+   flex: 0 0 auto;
+
+   margin: 10px;
+   border-bottom-left-radius: 3px;
+   border-bottom-right-radius: 3px;
+
+   font-size: 14px;
+
+   background-color: #f9f9f9;
+   border: 1px solid #f0f0f0;
+
+   box-shadow: 1px 1px 4px 0px rgba(0,0,0,.3);
+}
+
+.swatch .sample {
+   height: 60px;
+}
+
+.swatch .name {
+   text-align: center;
+
+   padding: 0 5px;
+
+   font-family: sans-serif;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+   font-size: 1.2em;
+
+   color: #777;
+}
+
+.swatch .codes {
+   list-style: none;
+   margin: 0;
+   padding: 0px;
+}
+
+.swatch .codes .code {
+   padding: 10px 5px;
+   text-align: center;
+
+   font-family: monospace;
+   font-size: 1em;
+
+   color: #666;
+
+   &:hover {
+      background-color: #ff74f5;
+      color: #f9f9f9;
+      text-shadow: 1px 1px 1px rgba(0,0,0, 0.5);
+      cursor: pointer;
+   }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "Calendar",
+  "version": "0.0.1",
+  "description": "",
+  "author": {
+    "name": "Giulio 'mgiulio' Mainardi",
+    "url": "http://mgiulio.github.io/"
+  },
+  "homepage": "",
+  "license": "ISC",
+  "private": true,
+  "devDependencies": {
+    "autoprefixer-core": "^5.2.1",
+    "clean-css": "^3.3.9",
+    "fs-extra": "^0.20.1",
+    "node-sass": "^3.2.0",
+    "postcss": "^4.1.13",
+    "react": "^0.13.3",
+    "reactify": "^1.1.1",
+    "uglify-js": "^2.4.24"
+  },
+  "engines": {
+    "node": ">= 0.6.0",
+    "npm": ">= 1.0.0"
+  }
+}

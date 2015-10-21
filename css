@@ -1,0 +1,48 @@
+#!/usr/bin/env node
+
+var
+	fs = require('fs-extra')
+;
+
+css();
+
+function css() {
+	var
+		inFile = 'src/css/style.scss',
+		outFile = 'dist/public/css/style.css',
+		sass = require('node-sass'),
+		postcss = require('postcss')
+	;
+
+	console.log('Processing ' + inFile);
+
+	console.log('Sass...');
+	sass.render(
+		{
+  			file: inFile
+		},
+		function(err, result) {
+			if (err) {
+				console.log(err);
+			}
+			else {
+				console.log('Autoprefixer...');
+				postcss([
+					require('autoprefixer-core')()
+				])
+				.process(result.css, {
+				})
+				.then(function(result) {
+					console.log('CleanCSS...')
+					var CleanCSS = require('clean-css');
+					var minifiedCSS = new CleanCSS().minify(result.css).styles;
+					fs.outputFileSync(outFile, minifiedCSS); //fs.writeFileSync('dist/style.css', result.css);
+				})
+				.catch(function() {
+					console.log(arguments);
+				})
+				;
+			}
+		}
+	);
+}
