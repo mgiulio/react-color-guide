@@ -1,5 +1,6 @@
 var
    React = require('react')
+   ,Clipboard = require('clipboard')
 ;
 
 var Colors = React.createClass({
@@ -10,7 +11,7 @@ var Colors = React.createClass({
             <div className="sample" style={{backgroundColor: s.code}}></div>
             <h2 className="name">{s.name || s.code}</h2>
             <ul className="codes">
-               <li className="code hex">{s.code}</li>
+               <li className="code hex" data-clipboard-text={s.code}>{s.code}</li>
             </ul>
          </li>
       );
@@ -21,6 +22,10 @@ var Colors = React.createClass({
          </ul>
 
       );
+   },
+
+   componentDidMount: function() {
+      new Clipboard('.code');
    }
 
 });

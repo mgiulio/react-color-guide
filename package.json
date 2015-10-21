@@ -12,6 +12,7 @@
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
     "clean-css": "^3.3.9",
+    "clipboard": "^1.4.2",
     "fs-extra": "^0.20.1",
     "node-sass": "^3.2.0",
     "postcss": "^4.1.13",
