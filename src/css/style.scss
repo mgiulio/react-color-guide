@@ -1,8 +1,19 @@
 @import 'normalize-lite';
-@import 'colors/colors';
+@import 'components/ColorGuide';
 
 body {
-   height: 100vh;
-
    background-color: #ececec;
+}
+
+.page-wrap {
+   max-width: 960px;
+   margin: 0 auto;
+}
+
+section .title {
+   text-align: center;
+
+   font-family: serif;
+   font-size: 2.5em;
+   color: #666;
 }

@@ -20430,10 +20430,10 @@ var
    ,Clipboard = require('clipboard')
 ;
 
-var Colors = React.createClass({displayName: "Colors",
+var ColorGuide = React.createClass({displayName: "ColorGuide",
 
    render: function() {
-      var swatches = this.props.swatches.map(function(s) 
+      var swatches = this.props.colors.map(function(s) 
          {return React.createElement("li", {className: "swatch", key: s.code.substring(1)}, 
             React.createElement("div", {className: "sample", style: {backgroundColor: s.code}}), 
             React.createElement("h2", {className: "name"}, s.name || s.code), 
@@ -20481,119 +20481,151 @@ var Colors = React.createClass({displayName: "Colors",
 
 });
 
-module.exports = Colors;
+module.exports = ColorGuide;
 },{"clipboard":8,"react":163}],165:[function(require,module,exports){
 var
    React = require('react')
-   ,Colors = require('./Colors')
+   ,ColorGuide = require('./ColorGuide')
+   colorSchemes = require('./colorSchemes')
 ;
 
-var swatches = [
+var StyleGuide = React.createClass({displayName: "StyleGuide",
+
+   render: function() {
+      var colorGuides = colorSchemes.map(function(cs) 
+         {return React.createElement("section", {className: "color-guide"}, 
+            React.createElement("h2", {className: "title"}, cs.name), 
+            React.createElement(ColorGuide, {colors: cs.colors})
+         );}
+      );
+
+      return (
+         React.createElement("div", {className: "page-wrap"}, 
+            colorGuides
+         )
+      );
+   }
+
+});
+
+module.exports = StyleGuide;
+},{"./ColorGuide":164,"./colorSchemes":167,"react":163}],166:[function(require,module,exports){
+var
+   React = require('react')
+   ,StyleGuide = require('./StyleGuide')
+;
+
+React.render(React.createElement(StyleGuide, null), document.body);
+},{"./StyleGuide":165,"react":163}],167:[function(require,module,exports){
+module.exports = [
    {
-      code: '#1abc9c',
-      name: 'torquoise'
-   },
-   {
-      code: '#2ecc71',
-      name: 'Emerald'
-   },
-   {
-      code: '#607d8b',
-      name: 'Blue Gray'
-   },
-   {
-      code: '#ff5722',
-      name: 'deep orange'
-   },
-   {
-      code: '#cddc39',
-      name: 'lime'
-   },
-   {
-      code: '#a2c0cc',
-      name: ''
-   },
-   {
-      code: '#009688',
-      name: 'Teal'
-   },
-   {
-      code: '#bfbebe',
-      name: ''
-   },
-   {
-      code: '#fba4b4',
-      name: ''
-   },
-   {
-      code: '#ffd54f',
-      name: ''
-   },
-   {
-      code: '#ff5e00',
-      name: ''
-   },
-   {
-      code: '#ffeb3b',
-      name: 'Yellow'
-   },
-   {
-      code: '#ffc107',
-      name: 'Amber'
-   },
-   {
-      code: '#f0f0f0',
-      name: ''
-   },
-   {
-      code: '#f6f6f6',
-      name: ''
-   },
-   {
-      code: '#f9f9f9',
-      name: ''
-   },
-   {
-      code: '#808080',
-      name: ''
-   },
-   {
-      code: '#333',
-      name: ''
-   },
-   {
-      code: '#cd6565',
-      name: ''
-   },
-   {
-      code: '#ff6060',
-      name: ''
-   },
-   {
-      code: '#f1c40f',
-      name: 'sunflower'
-   },
-   {
-      code: '#e67e22',
-      name: 'carrot'
-   },
-   {
-      code: '#f39c12',
-      name: 'orange'
-   },
-   {
-      code: '#d35400',
-      name: 'pumpkin'
-   },
-   {
-      code: '#e74c3c',
-      name: 'alizarin'
-   },
-   {
-      code: '#c0392b',
-      name: 'pomegranate'
+      name: 'Some Colors',
+      colors: [
+         {
+            code: '#1abc9c',
+            name: 'torquoise'
+         },
+         {
+            code: '#2ecc71',
+            name: 'Emerald'
+         },
+         {
+            code: '#607d8b',
+            name: 'Blue Gray'
+         },
+         {
+            code: '#ff5722',
+            name: 'deep orange'
+         },
+         {
+            code: '#cddc39',
+            name: 'lime'
+         },
+         {
+            code: '#a2c0cc',
+            name: ''
+         },
+         {
+            code: '#009688',
+            name: 'Teal'
+         },
+         {
+            code: '#bfbebe',
+            name: ''
+         },
+         {
+            code: '#fba4b4',
+            name: ''
+         },
+         {
+            code: '#ffd54f',
+            name: ''
+         },
+         {
+            code: '#ff5e00',
+            name: ''
+         },
+         {
+            code: '#ffeb3b',
+            name: 'Yellow'
+         },
+         {
+            code: '#ffc107',
+            name: 'Amber'
+         },
+         {
+            code: '#f0f0f0',
+            name: ''
+         },
+         {
+            code: '#f6f6f6',
+            name: ''
+         },
+         {
+            code: '#f9f9f9',
+            name: ''
+         },
+         {
+            code: '#808080',
+            name: ''
+         },
+         {
+            code: '#333',
+            name: ''
+         },
+         {
+            code: '#cd6565',
+            name: ''
+         },
+         {
+            code: '#ff6060',
+            name: ''
+         },
+         {
+            code: '#f1c40f',
+            name: 'sunflower'
+         },
+         {
+            code: '#e67e22',
+            name: 'carrot'
+         },
+         {
+            code: '#f39c12',
+            name: 'orange'
+         },
+         {
+            code: '#d35400',
+            name: 'pumpkin'
+         },
+         {
+            code: '#e74c3c',
+            name: 'alizarin'
+         },
+         {
+            code: '#c0392b',
+            name: 'pomegranate'
+         }
+      ]
    }
 ];
-
-React.render(React.createElement(Colors, {swatches: swatches}), document.body);
-},{"./Colors":164,"react":163}]},{},[165]);
+},{}]},{},[166]);
