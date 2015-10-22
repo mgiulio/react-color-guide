@@ -20426,6 +20426,7 @@ module.exports = require('./lib/React');
 },{"./lib/React":36}],164:[function(require,module,exports){
 var
    React = require('react')
+   //,ReactDOM = require('react-dom')
    ,Clipboard = require('clipboard')
 ;
 
@@ -20437,7 +20438,10 @@ var Colors = React.createClass({displayName: "Colors",
             React.createElement("div", {className: "sample", style: {backgroundColor: s.code}}), 
             React.createElement("h2", {className: "name"}, s.name || s.code), 
             React.createElement("ul", {className: "codes"}, 
-               React.createElement("li", {className: "code hex", "data-clipboard-text": s.code}, s.code)
+               React.createElement("li", {className: "code hex", "data-clipboard-text": s.code}, 
+                  React.createElement("span", {className: "label"}, s.code), 
+                  React.createElement("span", {className: "notify"}, "Copied")
+               )
             )
          );}
       );
@@ -20451,7 +20455,28 @@ var Colors = React.createClass({displayName: "Colors",
    },
 
    componentDidMount: function() {
-      new Clipboard('.code');
+      var clipboard = new Clipboard('.code');
+
+      clipboard.on('success', function(e) {
+         var el = e.trigger;
+
+         e.clearSelection();
+
+         el.classList.add('notify');
+      });
+
+      //ReactDOM.findDOMNode(this)
+      this.getDOMNode()
+      .addEventListener('animationend', function(e) {
+         e.target.classList.remove('notify');
+      }, false);
+
+      /*
+      clipboard.on('error', function(e) {
+         console.error('Action:', e.action);
+         console.error('Trigger:', e.trigger);
+      });
+      */
    }
 
 });
@@ -20535,6 +20560,38 @@ var swatches = [
    {
       code: '#333',
       name: ''
+   },
+   {
+      code: '#cd6565',
+      name: ''
+   },
+   {
+      code: '#ff6060',
+      name: ''
+   },
+   {
+      code: '#f1c40f',
+      name: 'sunflower'
+   },
+   {
+      code: '#e67e22',
+      name: 'carrot'
+   },
+   {
+      code: '#f39c12',
+      name: 'orange'
+   },
+   {
+      code: '#d35400',
+      name: 'pumpkin'
+   },
+   {
+      code: '#e74c3c',
+      name: 'alizarin'
+   },
+   {
+      code: '#c0392b',
+      name: 'pomegranate'
    }
 ];
 

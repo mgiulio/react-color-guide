@@ -75,6 +75,38 @@ var swatches = [
    {
       code: '#333',
       name: ''
+   },
+   {
+      code: '#cd6565',
+      name: ''
+   },
+   {
+      code: '#ff6060',
+      name: ''
+   },
+   {
+      code: '#f1c40f',
+      name: 'sunflower'
+   },
+   {
+      code: '#e67e22',
+      name: 'carrot'
+   },
+   {
+      code: '#f39c12',
+      name: 'orange'
+   },
+   {
+      code: '#d35400',
+      name: 'pumpkin'
+   },
+   {
+      code: '#e74c3c',
+      name: 'alizarin'
+   },
+   {
+      code: '#c0392b',
+      name: 'pomegranate'
    }
 ];
 

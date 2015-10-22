@@ -49,9 +49,24 @@
    list-style: none;
    margin: 0;
    padding: 0px;
+   overflow: hidden;
 }
 
 .swatch .codes .code {
+   width: 200%;
+   display: flex;
+   flex-wrap: nowrap;
+
+   &.notify {
+      animation: slidepeek 1.5s;
+   }
+}
+
+.swatch .codes .code > * {
+   flex: 0 0 auto;
+   box-sizing: border-box;
+   width: 50%;
+   margin: 0;
    padding: 10px 5px;
    text-align: center;
 
@@ -59,11 +74,40 @@
    font-size: 1em;
 
    color: #666;
+}
 
-   &:hover {
-      background-color: #ff74f5;
-      color: #f9f9f9;
-      text-shadow: 1px 1px 1px rgba(0,0,0, 0.5);
-      cursor: pointer;
+.swatch .codes .code .label {
+   transition: background-color 0.3s ease;
+}
+
+.swatch .codes .code .label:hover,
+.swatch .codes .code.notify .label,
+{
+   background-color: #bfbebe;
+   color: #f9f9f9;
+   text-shadow: 1px 1px 1px rgba(0,0,0, 0.5);
+}
+.swatch .codes .code .label:hover {
+   cursor: pointer;
+}
+.swatch .codes .code.notify .label {
+   cursor: default;
+   pointer-events: none;
+}
+
+.swatch .codes .code .notify {
+   background-color: #666;
+   color: #f9f9f9;
+   text-shadow: 1px 1px 1px rgba(0,0,0, 0.5);
+}
+
+@keyframes slidepeek {
+   0% {
+      transform: translate(0%, 0%);
+      animation-timing-function:  ease-out;
+   }
+   50% {
+      transform: translate(-50%, 0%);
+      animation-timing-function:  ease-in;
    }
 }
