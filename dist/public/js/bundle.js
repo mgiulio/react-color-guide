@@ -21676,7 +21676,7 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
 
    render: function() {
       var colorGuides = colorSchemes.map(function(cs) 
-         {return React.createElement("section", {className: "color-guide"}, 
+         {return React.createElement("section", {className: "color-guide", key: cs.name}, 
             React.createElement("h2", {className: "title"}, cs.name), 
             React.createElement(ColorGuide, {colors: cs.colors})
          );}

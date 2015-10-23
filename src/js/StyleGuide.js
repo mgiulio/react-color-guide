@@ -8,7 +8,7 @@ var StyleGuide = React.createClass({
 
    render: function() {
       var colorGuides = colorSchemes.map(cs =>
-         <section className="color-guide">
+         <section className="color-guide" key={cs.name}>
             <h2 className="title">{cs.name}</h2>
             <ColorGuide colors={cs.colors} />
          </section>
