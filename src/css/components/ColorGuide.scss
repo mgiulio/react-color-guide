@@ -74,7 +74,15 @@
 }
 
 .swatch .codes .code .label {
+   border-bottom: 1px dotted #ccc;
+
    transition: background-color 0.3s ease;
+}
+.swatch .codes .code:last-child .label {
+   border-bottom: none;
+}
+.swatch .codes .code:first-child .label {
+   border-top: 1px dotted #ccc;
 }
 
 .swatch .codes .code .label:hover,
