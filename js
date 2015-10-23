@@ -14,7 +14,7 @@ try {
 
 function js() {
 	browserify(inFile)
-	//.then(minify)
+	.then(minify)
 	.then(save)
 	.catch(function(err) {
 		console.log(err);
